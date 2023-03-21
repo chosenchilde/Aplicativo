@@ -14,5 +14,11 @@
             email : 'joca@silva.com',
             birth : '2003-03-18',
             cpf : '012.345.678-90',
-            address : 'Rua do Siri Molhado, 22'
+            address : 'Rua do Siri Molhado, 22',
+            login: function() {
+                prompt('Digite seu nome e e-mail')
+            },
+            firstName: function(name) {
+                alert(name.split(' ')[0])
+            }
         }
