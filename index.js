@@ -2,13 +2,6 @@
         Esse é o código JavaScript dessa página.
         */
 
-        // Dados do usuário usando variáveis discretas.
-        var name = 'Joca da Silva'
-        var email = 'joca@silva.com'
-        var birth = '2003-03-18'
-        var cpf = '012.345.678-90'
-        var address = 'Rua do Siri Molhado, 22'
-
         // Dados do ususário. Forma moderna!
         var user = {
 
@@ -19,6 +12,7 @@
             cpf : '012.345.678-90',
             address : 'Rua do Siri Molhado, 22',
             password:'12345',
+            photo: 'https://randomuser.me/api/portraits/men/35.jpg',
 
             // Métodos do objeto "user".
             login: function() {
@@ -44,9 +38,20 @@
                         // Encerra a função retornando false.
                         return false
                     } else if(userPassword != user.password) {
-                    alert ('Senha não cadastrada')
+                    alert ('Senha não cadastrada.')
                     return false 
                 }
+
+                let parts = user.birth.split('-')
+                let date = parts[2] + '/' + parts[1] + '/' + parts[0]
+
+                document.write('<center><br>' + '<img src="' + user.photo + '"> <br> Olá ' + this.name.split(' ')[0] + '!' + '<br>' + 'Data de Nascimento: ' + date + '<br>' + 'E-mail Principal: ' + user.email + '<br>' + 'Endereço Cadastrado: ' + user.address + '</center>')
+                localStorage.userdata = JSON.stringify({
+                    name: user.name,
+                    email: user.email
+                })
+        
+            
             },
             firstName: function(name) {
                 alert(name.split(' ')[0])
